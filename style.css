@@ -1,0 +1,732 @@
+/* ---------------- HERO SECTION ---------------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background: linear-gradient(rgba(0, 82, 204, 0.8), rgba(0, 82, 204, 0.8)),
+              url('images/hero-bg.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #f9f9f9;
+}
+
+.cta-btn {
+  background: #FFD700; /* gold */
+  color: #0052cc;      /* trust blue */
+  font-weight: 700;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn:hover {
+  background: #D72638; /* urgent red */
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Subtle fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero {
+    height: 80vh;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* ---------------- FOOTER ---------------- */
+footer {
+  background: #002b80; /* deep blue for trust */
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+footer a {
+  color: #FFD700; /* gold accent */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #D72638; /* red for hover action */
+}
+
+footer p {
+  margin: 10px 0;
+  font-size: 0.95rem;
+}
+
+footer .disclaimer {
+  font-size: 0.85rem;
+  color: #cccccc;
+  margin-top: 20px;
+  line-height: 1.4;
+}
+
+/* Responsive footer text */
+@media (max-width: 768px) {
+  footer {
+    padding: 30px 15px;
+  }
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+
+
+  
+/* ---------------- PRODUCT SLIDER ---------------- */
+.product-slider {
+  background: #f9f9f9;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.product-slider h2 {
+  font-size: 2rem;
+  color: #002b80;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.slider-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+/* ---------------- PRODUCT SLIDER ---------------- */
+
+
+.product-slider {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #002b80;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .slide {
+    flex: 0 0 80%;
+  }
+
+  .slide img {
+    height: 180px;
+  }
+}
+
+/* ---------------- NAVBAR ---------------- */
+header {
+  width: 100%;
+  background: #2a323f; /* trust blue */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* ---------- NAVBAR ---------- */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px; /* increased right padding */
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color:yellowgreen;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px; /* more spacing between links */
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-right: 20px; /* adds a right margin to each link */
+}
+
+nav ul li:last-child {
+  margin-right: 0; /* remove margin from last item */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #56ccf2;
+}
+/* Responsive Navbar for Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #003c99;
+    flex-direction: column;
+    text-align: center;
+    display: none;
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* ---------------- HERO SECTION ---------------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+              url('./images/ladyluck.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 800px;
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: #FFD700; /* gold = success + reward */
+  text-shadow: 0 2px 10px rgba(255, 215, 0, 0.7);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #f2f2f2;
+}
+
+.cta-btn {
+  background: linear-gradient(90deg, #FFD700, #ffb700);
+  color: #002b80;
+  font-weight: 700;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #D72638;
+  color: #fff;
+  transform: scale(1.07);
+  box-shadow: 0 0 20px rgba(215, 38, 56, 0.6);
+}
+
+/* Subtle floating motion for subconscious attraction */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 80vh;
+  }
+
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* ---------------- CLEAN PRODUCT CARD + SLIDER SECTION ---------------- */
+#featured {
+  background: #f9f9f9;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#featured h2 {
+  font-size: 2rem;
+  color: #002b80;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* Slideshow container */
+#featured .container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Thumbnails row */
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.column {
+  width: 100px;
+  cursor: pointer;
+}
+
+.column img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.column img:hover,
+.column img.active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Navigation arrows */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  user-select: none;
+  transition: 0.3s;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* ---------------- PRODUCT CARD GRID ---------------- */
+.product-section {
+  background: #f9f9f9;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.product-section h1 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #002b80;
+  font-weight: 700;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding: 20px;
+  max-width: 350px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 16px rgba(0, 30, 201, 0.329);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 20px;
+  color: #002b80;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.card-btn {
+  display: inline-block;
+  background-color: #ff6600;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.card-btn:hover {
+  background-color: #e55500;
+}
+
+/* Responsive layout */
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .column {
+    width: 80px;
+  }
+
+  .column img {
+    height: 60px;
+  }
+}
+
+
+
+
+
+/* ---------------- FLIP CARD GRID ---------------- */
+.flip-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-items: center;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+@media (max-width: 992px) {
+  .flip-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .flip-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------- FLIP BOX ---------------- */
+.flip-box {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flip-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Inner container for flipping sides */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Flip animation on hover */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and back face setup */
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* ---------- FRONT SIDE ---------- */
+.flip-box-front {
+  background-color: #fff;
+  color: black;
+}
+
+.flip-box-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- BACK SIDE ---------- */
+.flip-box-back {
+  background-color: #002b80;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.flip-link {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+}
+.flip-link:hover {
+  color: inherit;
+}
+
+
+#scrollToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+/* Show button when active */
+#scrollToTop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hover effect */
+#scrollToTop:hover {
+  background-color: white;
+  color: #ff6600;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
