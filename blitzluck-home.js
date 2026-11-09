@@ -86,4 +86,48 @@
     updateTopButton();
     topButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
-})();
+
+  // Sidebar category filters and category-card shortcuts.
+  const offerCards = Array.from(document.querySelectorAll('.offer-card[data-category]'));
+  const filterControls = Array.from(document.querySelectorAll('.category-filter'));
+  const categoryCards = Array.from(document.querySelectorAll('.category-card[data-filter]'));
+  const discoveriesHeading = document.querySelector('#discoveries .section-heading h2');
+
+  const applyCategoryFilter = (filter) => {
+    offerCards.forEach((card) => {
+      card.hidden = filter !== 'all' && card.dataset.category !== filter;
+    });
+    filterControls.forEach((control) => {
+      const selected = control.dataset.filter === filter;
+      control.classList.toggle('is-selected', selected);
+      control.setAttribute('aria-pressed', String(selected));
+    });
+    if (discoveriesHeading) {
+      const names = {
+        all: 'Worth a closer <em>look</em>',
+        technology: 'Technology <em>discoveries</em>',
+        travel: 'Travel <em>discoveries</em>',
+        fashion: 'Fashion <em>discoveries</em>',
+        outdoor: 'Outdoor <em>discoveries</em>',
+        wellness: 'Wellness <em>discoveries</em>'
+      };
+      discoveriesHeading.innerHTML = names[filter] || names.all;
+    }
+  };
+
+  filterControls.forEach((control) => {
+    control.addEventListener('click', () => {
+      applyCategoryFilter(control.dataset.filter || 'all');
+      document.querySelectorAll('.sidebar-group').forEach((group) => { group.open = false; });
+      document.getElementById('discoveries')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  categoryCards.forEach((card) => {
+    card.addEventListener('click', (event) => {
+      event.preventDefault();
+      applyCategoryFilter(card.dataset.filter || 'all');
+      document.getElementById('discoveries')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+\n})();
