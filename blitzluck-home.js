@@ -228,4 +228,24 @@
     startDiscovery();
   }
 
+
+  // Measure the brand strip so it travels across the available width and glides back.
+  const brandWindow = document.querySelector('.brand-directory-window');
+  const brandRail = document.querySelector('.brand-directory-rail');
+  if (brandWindow && brandRail) {
+    const updateBrandTravel = () => {
+      const distance = Math.max(0, brandRail.scrollWidth - brandWindow.clientWidth);
+      brandRail.style.setProperty('--brand-rail-distance', distance + 'px');
+      brandRail.style.setProperty('--brand-rail-duration', Math.max(22, distance / 24) + 's');
+    };
+    updateBrandTravel();
+    if ('ResizeObserver' in window) {
+      const brandResizeObserver = new ResizeObserver(updateBrandTravel);
+      brandResizeObserver.observe(brandWindow);
+      brandResizeObserver.observe(brandRail);
+    } else {
+      window.addEventListener('resize', updateBrandTravel);
+    }
+  }
+
 })();
