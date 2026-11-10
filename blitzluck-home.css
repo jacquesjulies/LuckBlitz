@@ -804,3 +804,14 @@ html { scroll-behavior: smooth; }
   .discovery-slide.is-active { animation:none; }
   .discovery-image-link img,.discovery-cta,.discovery-arrow,.discovery-dot { transition:none; }
 }
+
+/* Brand names glide across the directory and return smoothly */
+.brand-directory-window { max-width:1320px; margin:0 auto; overflow-x:auto; overflow-y:hidden; scrollbar-width:none; -ms-overflow-style:none; }
+.brand-directory-window::-webkit-scrollbar { display:none; }
+.brand-directory-rail { display:flex; flex-wrap:nowrap; justify-content:flex-start; align-items:center; width:max-content; min-width:100%; gap:clamp(26px,4vw,58px); padding:20px 4px 12px; border-top:1px solid rgba(16,35,29,.13); will-change:transform; animation:brand-rail-travel var(--brand-rail-duration,34s) ease-in-out infinite alternate; }
+.brand-directory-rail a { flex:0 0 auto; white-space:nowrap; padding:5px 0; }
+.brand-directory-window:hover .brand-directory-rail,
+.brand-directory-window:focus-within .brand-directory-rail { animation-play-state:paused; }
+@keyframes brand-rail-travel { from { transform:translateX(0); } to { transform:translateX(calc(-1 * var(--brand-rail-distance, 0px))); } }
+@media(max-width:760px) { .brand-directory-window { margin:0; } .brand-directory-rail { gap:28px; } }
+@media(prefers-reduced-motion:reduce) { .brand-directory-rail { animation:none; transform:none; } .brand-directory-window { overflow-x:auto; } }
