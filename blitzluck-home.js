@@ -174,4 +174,58 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
     revealTargets.forEach((element) => revealObserver.observe(element));
   }
+
+  // Mid-page product deep-link carousel.
+  const discoverySlides = Array.from(document.querySelectorAll('.discovery-slide'));
+  const discoveryDots = Array.from(document.querySelectorAll('.discovery-dot'));
+  const discoveryPrev = document.querySelector('.discovery-prev');
+  const discoveryNext = document.querySelector('.discovery-next');
+  const discoverySlider = document.querySelector('.discovery-slider');
+
+  if (discoverySlides.length) {
+    let discoveryIndex = 0;
+    let discoveryTimer = null;
+    const discoveryReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const showDiscovery = (index) => {
+      discoveryIndex = (index + discoverySlides.length) % discoverySlides.length;
+      discoverySlides.forEach((slide, i) => {
+        const active = i === discoveryIndex;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', String(!active));
+      });
+      discoveryDots.forEach((dot, i) => {
+        const active = i === discoveryIndex;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-pressed', String(active));
+      });
+    };
+    const stopDiscovery = () => {
+      if (discoveryTimer) window.clearInterval(discoveryTimer);
+      discoveryTimer = null;
+    };
+    const startDiscovery = () => {
+      stopDiscovery();
+      if (!discoveryReduceMotion && !document.hidden) {
+        discoveryTimer = window.setInterval(() => showDiscovery(discoveryIndex + 1), 6000);
+      }
+    };
+
+    if (discoveryNext) discoveryNext.addEventListener('click', () => { showDiscovery(discoveryIndex + 1); startDiscovery(); });
+    if (discoveryPrev) discoveryPrev.addEventListener('click', () => { showDiscovery(discoveryIndex - 1); startDiscovery(); });
+    discoveryDots.forEach((dot, index) => dot.addEventListener('click', () => { showDiscovery(index); startDiscovery(); }));
+    if (discoverySlider) {
+      discoverySlider.addEventListener('mouseenter', stopDiscovery);
+      discoverySlider.addEventListener('mouseleave', startDiscovery);
+      discoverySlider.addEventListener('focusin', stopDiscovery);
+      discoverySlider.addEventListener('focusout', startDiscovery);
+    }
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopDiscovery();
+      else startDiscovery();
+    });
+    showDiscovery(0);
+    startDiscovery();
+  }
+
 })();
