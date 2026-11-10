@@ -521,3 +521,137 @@ body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   .category-card::before, .offer-image img { transition: none; }
 }
+
+
+/* Elegant under-construction announcement */
+.construction-banner {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  overflow: hidden;
+  margin: 22px 3.2% 0;
+  padding: 27px 34px;
+  color: #f7f3e9;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(199,169,107,.16), transparent 30%),
+    linear-gradient(115deg, #10231d 0%, #18392d 58%, #10231d 100%);
+  border: 1px solid rgba(199,169,107,.55);
+  box-shadow: 0 12px 32px rgba(16,35,29,.09);
+}
+.construction-banner::before,
+.construction-banner::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(224,201,147,.13);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.construction-banner::before { right: 7%; top: -125px; }
+.construction-banner::after { right: 3%; bottom: -150px; width: 230px; height: 230px; }
+.construction-ornament {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  color: #e0c993;
+  border: 1px solid rgba(224,201,147,.55);
+  font: 2rem/1 var(--serif);
+  transform: rotate(45deg);
+}
+.construction-ornament::first-letter { transform: rotate(-45deg); }
+.construction-copy { min-width: 0; }
+.construction-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 7px;
+  color: #e0c993;
+  font-size: .59rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+.construction-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d7b66e;
+  box-shadow: 0 0 0 4px rgba(215,182,110,.13);
+  animation: construction-glow 2s ease-in-out infinite;
+}
+.construction-copy h2 {
+  margin: 0 0 6px;
+  color: #fbf8f0;
+  font: 500 clamp(1.35rem, 2.4vw, 2rem)/1.15 var(--serif);
+}
+.construction-copy h2 em { color: #e0c993; }
+.construction-copy > p:last-child {
+  max-width: 760px;
+  margin: 0;
+  color: rgba(250,248,240,.72);
+  font-size: .78rem;
+  line-height: 1.65;
+}
+.construction-cta {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 46px;
+  padding: 0 17px;
+  color: #17281f;
+  background: linear-gradient(135deg, #e5d2a2, #c7a96b);
+  border: 1px solid #e5d2a2;
+  text-decoration: none;
+  font-size: .7rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.construction-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+.construction-cta span { font-size: 1rem; }
+.construction-lines {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  gap: 3px;
+  height: 2px;
+  opacity: .8;
+}
+.construction-lines span { flex: 1; background: rgba(224,201,147,.15); }
+.construction-lines span:nth-child(2),
+.construction-lines span:nth-child(4) { background: rgba(224,201,147,.7); }
+.construction-cta:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+@keyframes construction-glow {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(215,182,110,.12); opacity: .8; }
+  50% { box-shadow: 0 0 0 7px rgba(215,182,110,.05); opacity: 1; }
+}
+@media (max-width: 760px) {
+  .construction-banner {
+    grid-template-columns: 42px minmax(0,1fr);
+    gap: 15px;
+    margin: 14px 14px 0;
+    padding: 22px 18px 20px;
+  }
+  .construction-ornament { width: 40px; height: 40px; font-size: 1.55rem; }
+  .construction-cta { grid-column: 2; justify-self: start; min-height: 42px; }
+}
+@media (max-width: 420px) {
+  .construction-banner { margin: 10px 10px 0; padding: 19px 14px; gap: 12px; }
+  .construction-eyebrow { font-size: .52rem; letter-spacing: .12em; }
+  .construction-copy > p:last-child { font-size: .73rem; }
+  .construction-cta { font-size: .66rem; gap: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .construction-pulse { animation: none; }
+  .construction-cta { transition: none; }
+}
