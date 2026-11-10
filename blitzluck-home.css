@@ -695,3 +695,48 @@ body { overflow-x: clip; }
 @media(max-width:760px) { .blitz-edit { padding-top:55px; padding-bottom:58px; } .inspiration-strip { grid-template-columns:1fr; gap:26px; padding:44px 7%; } .brand-directory-heading { display:block; } .brand-directory-rail { justify-content:flex-start; gap:18px 24px; } }
 @media(max-width:520px) { .edit-rail { grid-template-columns:1fr; gap:12px; } .edit-card { min-height:250px; } .inspiration-links { grid-template-columns:1fr; } .brand-directory { padding:42px 7%; } }
 @media(prefers-reduced-motion:reduce) { .edit-card img { transition:none; } }
+
+
+/* Refined motion system: calm, consistent and accessible */
+:root { --motion-ease: cubic-bezier(.22,.61,.36,1); --motion-fast: 180ms; --motion-base: 320ms; }
+html { scroll-behavior: smooth; }
+.primary-nav a, .gold-button, .construction-cta, .text-link, .category-card,
+.offer-card, .offer-image img, .sidebar-group summary, .brand-directory-rail a,
+.inspiration-link, .footer-column a, .footer-top-link, .back-to-top {
+  transition-timing-function: var(--motion-ease);
+}
+.primary-nav a { transition: color var(--motion-base) var(--motion-ease), opacity var(--motion-base) var(--motion-ease); }
+.primary-nav .nav-cta { transition: color var(--motion-base) var(--motion-ease), background var(--motion-base) var(--motion-ease), border-color var(--motion-base) var(--motion-ease); }
+.gold-button, .construction-cta { transition: background-color var(--motion-base) var(--motion-ease), color var(--motion-base) var(--motion-ease), transform var(--motion-base) var(--motion-ease), box-shadow var(--motion-base) var(--motion-ease); }
+.gold-button:hover, .construction-cta:hover { transform: translateY(-2px); box-shadow: 0 9px 24px rgba(10,25,18,.16); }
+.offer-card { transition: transform 420ms var(--motion-ease), box-shadow 420ms var(--motion-ease); }
+.offer-card:hover { transform: translateY(-4px); box-shadow: 0 16px 38px rgba(16,35,29,.11); }
+.offer-image { overflow: hidden; }
+.offer-image img { transition: transform 720ms var(--motion-ease), filter 720ms var(--motion-ease); }
+.offer-card:hover .offer-image img { transform: scale(1.035); }
+.edit-card { transition: transform 420ms var(--motion-ease), box-shadow 420ms var(--motion-ease); }
+.edit-card:hover { transform: translateY(-4px); box-shadow: 0 18px 38px rgba(8,20,15,.2); }
+.edit-card img { transition: transform 850ms var(--motion-ease), filter 850ms var(--motion-ease); }
+.edit-card:hover img { transform: scale(1.045); filter: saturate(1.04); }
+.edit-card-copy strong { transition: letter-spacing 420ms var(--motion-ease), color 420ms var(--motion-ease); }
+.edit-card:hover .edit-card-copy strong { letter-spacing: .01em; }
+.category-card { transition: transform 360ms var(--motion-ease), border-color 360ms var(--motion-ease), background-color 360ms var(--motion-ease), box-shadow 360ms var(--motion-ease); }
+.category-card:hover { transform: translateY(-3px); }
+.inspiration-link { transition: color 300ms var(--motion-ease), border-color 300ms var(--motion-ease), padding-left 300ms var(--motion-ease); }
+.inspiration-link:hover { padding-left: 5px; }
+.brand-directory-rail a { transition: color 260ms var(--motion-ease), transform 260ms var(--motion-ease); }
+.brand-directory-rail a:hover { transform: translateY(-2px); }
+.construction-pulse { animation: construction-glow 3.2s ease-in-out infinite; }
+.construction-lines span { transition: opacity 600ms var(--motion-ease); }
+@keyframes blitz-soft-rise {
+  from { opacity: 0; transform: translate3d(0,16px,0); }
+  to { opacity: 1; transform: translate3d(0,0,0); }
+}
+.motion-ready [data-reveal] { opacity: 0; transform: translate3d(0,16px,0); transition: opacity 700ms var(--motion-ease), transform 700ms var(--motion-ease); }
+.motion-ready [data-reveal].is-revealed { opacity: 1; transform: translate3d(0,0,0); }
+.hero-slide.is-active .hero-copy { animation: blitz-soft-rise 720ms var(--motion-ease) both; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .motion-ready [data-reveal] { opacity: 1; transform: none; }
+}
