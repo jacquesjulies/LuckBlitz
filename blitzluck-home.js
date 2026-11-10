@@ -113,7 +113,7 @@
       control.setAttribute('aria-pressed', String(selected));
     });
     if (filterStatus) {
-      const labels = { all: 'all discoveries', technology: 'technology discoveries', travel: 'travel discoveries', fashion: 'fashion discoveries', outdoor: 'outdoor discoveries', wellness: 'wellness discoveries' };
+      const labels = { all: 'all discoveries', technology: 'technology discoveries', travel: 'travel discoveries', fashion: 'fashion discoveries', outdoor: 'outdoor discoveries', wellness: 'wellness discoveries', beauty: 'beauty & personal care discoveries' };
       const visibleCount = offerCards.filter((card) => !card.hidden).length;
       filterStatus.textContent = `Showing ${visibleCount} ${labels[filter] || labels.all}`;
     }
@@ -124,7 +124,8 @@
         travel: 'Travel <em>discoveries</em>',
         fashion: 'Fashion <em>discoveries</em>',
         outdoor: 'Outdoor <em>discoveries</em>',
-        wellness: 'Wellness <em>discoveries</em>'
+        wellness: 'Wellness <em>discoveries</em>',
+        beauty: 'Beauty &amp; Personal Care <em>discoveries</em>'
       };
       discoveriesHeading.innerHTML = names[filter] || names.all;
     }
