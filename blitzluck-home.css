@@ -31,8 +31,10 @@ button { font: inherit; }
 .brand-word { display: flex; flex-direction: column; font-family: var(--serif); font-size: 1.58rem; letter-spacing: .01em; font-weight: 600; line-height: 1; }
 .brand-word span { color: #f3ead6; font-family: var(--sans); font-size: .78em; font-weight: 500; }
 .brand-tagline { display: block; margin-top: 6px; color: rgba(224,201,147,.82); font-family: var(--sans); font-size: .48rem; font-weight: 600; letter-spacing: .19em; line-height: 1.2; white-space: nowrap; }
-.brand-header-logo .brand-mark { width: 48px; height: 48px; color: var(--gold-light); filter: drop-shadow(0 0 7px rgba(199,169,107,.22)); }
-@media (max-width: 520px) { .brand-header-logo .brand-mark { width: 40px; height: 40px; } .brand-header-logo .brand-word { font-size: 1.35rem; } .brand-tagline { font-size: .39rem; letter-spacing: .14em; } }
+.brand-header-logo { gap: 0; }
+.brand-header-artwork { display: block; width: 220px; height: 68px; max-width: 100%; object-fit: contain; object-position: left center; }
+@media (max-width: 760px) { .brand-header-artwork { width: 190px; height: 60px; } }
+@media (max-width: 420px) { .brand-header-artwork { width: 164px; height: 54px; } }
 .primary-nav { display: flex; align-items: center; gap: clamp(18px, 2.8vw, 42px); }
 .primary-nav a { color: rgba(250,248,240,.84); font-size: .82rem; letter-spacing: .035em; text-decoration: none; transition: color .2s ease; }
 .primary-nav a:hover, .primary-nav a:focus-visible { color: var(--gold-light); }
