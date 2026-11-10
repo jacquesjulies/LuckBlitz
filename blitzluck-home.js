@@ -28,6 +28,15 @@
     });
   }
 
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuButton && nav) {
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open navigation');
+      nav.classList.remove('is-open');
+      menuButton.focus();
+    }
+  });
+
   if (slides.length) {
     let activeIndex = 0;
     let timer = null;
@@ -92,6 +101,7 @@
   const filterControls = Array.from(document.querySelectorAll('.category-filter'));
   const categoryCards = Array.from(document.querySelectorAll('.category-card[data-filter]'));
   const discoveriesHeading = document.querySelector('#discoveries .section-heading h2');
+  const filterStatus = document.getElementById('filter-status');
 
   const applyCategoryFilter = (filter) => {
     offerCards.forEach((card) => {
@@ -102,6 +112,11 @@
       control.classList.toggle('is-selected', selected);
       control.setAttribute('aria-pressed', String(selected));
     });
+    if (filterStatus) {
+      const labels = { all: 'all discoveries', technology: 'technology discoveries', travel: 'travel discoveries', fashion: 'fashion discoveries', outdoor: 'outdoor discoveries', wellness: 'wellness discoveries' };
+      const visibleCount = offerCards.filter((card) => !card.hidden).length;
+      filterStatus.textContent = `Showing ${visibleCount} ${labels[filter] || labels.all}`;
+    }
     if (discoveriesHeading) {
       const names = {
         all: 'Worth a closer <em>look</em>',
