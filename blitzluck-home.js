@@ -145,4 +145,13 @@
       document.getElementById('discoveries')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
-\n})();
+
+  
+  // Editorial inspiration shortcuts use the same category filter as the sidebar.
+  document.querySelectorAll('.inspiration-link[data-filter]').forEach((button) => {
+    button.addEventListener('click', () => {
+      applyCategoryFilter(button.dataset.filter || 'all');
+      document.getElementById('discoveries')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+})();
