@@ -139,6 +139,13 @@
     });
   });
 
+
+  // Apply a category passed from the Spotlight sidebar on Discover & Shop.
+  const requestedCategory = new URLSearchParams(window.location.search).get('category');
+  if (requestedCategory && ['technology','travel','fashion','outdoor','wellness','beauty'].includes(requestedCategory)) {
+    applyCategoryFilter(requestedCategory);
+  }
+
   categoryCards.forEach((card) => {
     card.addEventListener('click', (event) => {
       event.preventDefault();
