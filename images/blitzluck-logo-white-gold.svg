@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 270" role="img" aria-labelledby="title desc">
+<title id="title">BlitzLuck — The Spotlight</title><desc id="desc">BlitzLuck white and gold wordmark with a star accent and The Spotlight tagline.</desc>
+<defs><linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2d58e"/><stop offset=".48" stop-color="#c49a45"/><stop offset="1" stop-color="#8d6828"/></linearGradient></defs>
+<g font-family="Georgia, 'Times New Roman', serif" font-weight="600" letter-spacing="-5"><text x="34" y="166" font-size="150" fill="#fff">Blitz</text><text x="390" y="166" font-size="150" fill="url(#gold)">Luck</text></g>
+<path d="M204 21 L214 51 L244 61 L214 71 L204 101 L194 71 L164 61 L194 51 Z" fill="url(#gold)"/>
+<path d="M54 190 C270 220 610 220 1128 185" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round"/>
+<g fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="35" font-weight="600" letter-spacing="14"><text x="344" y="254">THE SPOTLIGHT</text></g>
+<path d="M122 239 H292 M908 239 H1078" stroke="url(#gold)" stroke-width="3"/>
+</svg>
