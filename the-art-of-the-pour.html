@@ -23,6 +23,9 @@
 .non-hero{position:relative;min-height:470px;display:flex;align-items:flex-end;overflow:hidden;border-radius:4px;background:linear-gradient(90deg,rgba(10,29,24,.88),rgba(10,29,24,.16)),url('https://us.non.world/cdn/shop/files/mixed-6-2-us_ea5301e9-6d86-491c-aac9-c732657c3b65.jpg?v=1752468746&width=3000') center/cover}
 .non-hero-copy{max-width:720px;padding:clamp(28px,6vw,68px);color:#fff}
 .non-kicker{letter-spacing:.2em;text-transform:uppercase;font-size:.72rem;color:#d8bd83;font-weight:700}
+/* Keep the hero copy legible over the dark photographic background. */
+.non-hero-copy .non-kicker{color:#fff!important}
+.non-hero-copy>p:not(.non-kicker){color:#fff!important}
 .non-hero h1{font-family:Georgia,serif;font-size:clamp(2.8rem,7vw,5.6rem);line-height:.98;margin:18px 0}
 .non-hero h1 em,.non-feature h2 em{color:#d8bd83;font-weight:400}
 .non-hero p{font-size:1.08rem;line-height:1.75;max-width:620px;color:#f0eee7}
