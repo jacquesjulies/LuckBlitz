@@ -845,3 +845,15 @@ html { scroll-behavior: smooth; }
     overflow: visible;
   }
 }
+
+
+/* Full-width editorial layout: navigation is handled by the top menu. */
+.page-layout,
+.page-layout.spotlight-layout {
+  display: block;
+  width: 100%;
+}
+.page-layout > .main-content {
+  width: 100%;
+  min-width: 0;
+}
