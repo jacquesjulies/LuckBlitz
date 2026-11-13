@@ -55,3 +55,14 @@
 @media(max-width:1050px){.spotlight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.spotlight-lead{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.spotlight-layout{display:flex;flex-direction:column}.spotlight-sidebar{width:100%;height:auto;max-height:none;position:relative;top:auto;overflow:visible;padding:18px 20px 16px}.spotlight-sidebar .sidebar-note{display:none}.spotlight-lead{grid-template-columns:1fr}.spotlight-lead-image,.spotlight-lead-image img{min-height:300px;height:300px}.spotlight-lead-copy{padding:30px 24px 34px}.spotlight-section{padding-top:38px}.spotlight-shop-strip{align-items:flex-start;flex-direction:column}.spotlight-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.spotlight-card,.spotlight-card-image img,.spotlight-lead-image img{transition:none}}
+
+
+/* Continuous brand-name marquee on The Spotlight homepage */
+.spotlight-brand-window { overflow:hidden; width:100%; }
+.spotlight-brand-track { display:flex; width:max-content; animation:spotlight-brand-scroll 32s linear infinite; will-change:transform; }
+.spotlight-brand-links { display:flex; flex:0 0 auto; flex-wrap:nowrap; align-items:center; gap:12px; padding:12px 6px; }
+.spotlight-brand-links a { flex:0 0 auto; white-space:nowrap; }
+.spotlight-brand-window:hover .spotlight-brand-track,
+.spotlight-brand-window:focus-within .spotlight-brand-track { animation-play-state:paused; }
+@keyframes spotlight-brand-scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@media(prefers-reduced-motion:reduce) { .spotlight-brand-track { animation:none; } .spotlight-brand-window { overflow-x:auto; } }
